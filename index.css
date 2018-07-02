@@ -1,0 +1,19 @@
+* {
+  box-sizing: border-box;
+  }
+
+.homepage {
+  margin-top: 300px;
+}
+
+.homechoice {
+  display: inline-block;
+}
+
+.start-button {
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
