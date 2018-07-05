@@ -6,7 +6,7 @@
   margin-top: 300px;
 }
 
-.homechoice {
+.block {
   display: inline-block;
 }
 
@@ -16,4 +16,46 @@
 
 .hidden {
   display: none;
+}
+
+.centered-text {
+  text-align:center;
+}
+
+ .current-game{
+   height: 100%;
+   width: 100%;
+ }
+
+.left-corner {
+  width: 23%;
+  height: 100%;
+  float: left;
+  
+}
+
+.main-content {
+  width: 50%;
+  height: 100%;
+}
+
+.right-corner {
+  width: 23%;
+  height: 100%;
+  float: right;
+}
+
+main {
+  height: 1000px;;
+  width: 100%;
+}
+
+.flag-1 {
+  height: 25%;
+  background-color: purple;
+}
+
+.flag-2 {
+  height: 25%;
+  background-color: gold;
 }
