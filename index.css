@@ -52,10 +52,16 @@ main {
 
 .flag-1 {
   height: 25%;
-  background-color: purple;
 }
 
 .flag-2 {
   height: 25%;
-  background-color: gold;
+}
+
+.flag-1 img{
+  width: 100%;
+}
+
+.flag-2 img{
+  width: 100%;
 }
