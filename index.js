@@ -12,9 +12,62 @@ function showCurrentGames(){
   })
 }
 
+function returnFromGames() {
+  $('.back-button').click(function(){
+    $('.current-game').addClass('hidden');
+    emptyApp();
+    $('header').removeClass('hidden');
+  })
+}
+
+function searchCountryMatches() {
+  $('#js-form').submit(function(event){
+    event.preventDefault();
+    getSoccerApi(filterForSearch);
+  })
+}
+
+function selectSearchedTeam() {
+  $('.game-chooser').on('click', 'button', function(event) {
+    event.preventDefault();
+    console.log("im printing OVER HERE");
+    
+
+  })
+}
+
 
 function getSoccerApi(callback) {
   const params = {url: todayMatchApi, data: {by_date: "desc"}, success: callback }
+  $.ajax(params);
+}
+
+function getFlagApi(homeFlag, awayFlag, homeCallBack, awayCallBack){
+  if(homeFlag === "England") {
+    homeFlag = "United Kingdom";
+  }
+
+  if(awayFlag === "England") {
+    awayFlag = "United Kingdom";
+  }
+
+  if(homeFlag === "Korea Republic") {
+    homeFlag = "Korea";
+  }
+
+  if(awayFlag === "Korea Republic") {
+    awayFlag = "Korea";
+  }
+  const params = {url: `${flagUrl}${homeFlag}`, success: homeCallBack};
+  console.log(`${flagUrl}${homeFlag}`)
+  $.ajax(params);
+  const params2 = {url: `${flagUrl}${awayFlag}`, success: awayCallBack};
+  console.log(`${flagUrl}${awayFlag}`);
+  $.ajax(params2);
+}
+
+function getYoutubeApi(searchTerm, callback) {
+  const params = {url: youtubeEndpoint, data: {part: "snippet", q: searchTerm, key: keyCode}, success: callback};
   $.ajax(params);
 }
 
@@ -57,29 +110,6 @@ function renderAllStats(item) {
   $('.leading-content').append(renderMatchInfo(item));
 }
 
-function getFlagApi(homeFlag, awayFlag, homeCallBack, awayCallBack){
-  if(homeFlag === "England") {
-    homeFlag = "United Kingdom";
-  }
-
-  if(awayFlag === "England") {
-    awayFlag = "United Kingdom";
-  }
-
-  if(homeFlag === "Korea Republic") {
-    homeFlag = "Korea";
-  }
-
-  if(awayFlag === "Korea Republic") {
-    awayFlag = "Korea";
-  }
-  const params = {url: `${flagUrl}${homeFlag}`, success: homeCallBack};
-  console.log(`${flagUrl}${homeFlag}`)
-  $.ajax(params);
-  const params2 = {url: `${flagUrl}${awayFlag}`, success: awayCallBack};
-  console.log(`${flagUrl}${awayFlag}`);
-  $.ajax(params2);
-}
 
 function getFlagPicture(data) {
   return `<img src=${data[0].flag}>`
@@ -93,10 +123,7 @@ function renderAwayFlag(awayFlag) {
   $('.flag-2').append(getFlagPicture(awayFlag));
 }
 
-function getYoutubeApi(searchTerm, callback) {
-  const params = {url: youtubeEndpoint, data: {part: "snippet", q: searchTerm, key: keyCode}, success: callback};
-  $.ajax(params);
-}
+
 
 function renderYoutubeVideos(data) {
   return `
@@ -113,5 +140,39 @@ function updateVideos(data) {
   $('.leading-content').append(renderYoutubeVideos(data));
 }
 
+function emptyApp() {
+  $('.flag-1').empty();
+  $('.left-main').empty();
+  $('.leading-content').empty();
+  $('.flag-2').empty();
+  $('.right-main').empty();
+}
 
-$(showCurrentGames)
+function filterForSearch(data) {
+  let userInput = $('#textfield').val();
+  $('#textfield').val('');
+  $('.game-chooser').empty();
+  $('.game-chooser').append(`
+        <h2 class="centered-text">Which game would you like to view?</h2>
+        <form class= "chooser-form centered-text col-6" aria-live="assertive">
+          <button type="submit" class="centered-text">Submit</button>
+        </form> `);
+  const arrayOfMatches = data.filter(item => item.home_team_country === userInput || item.away_team_country === userInput);
+  const renderedMatches = arrayOfMatches.map(renderSearchMatches);
+  $('.chooser-form').prepend(renderedMatches);
+  
+}
+
+function renderSearchMatches(item) {
+  return `<div class="answerOption">
+           <input type="radio" role="radio" required>
+           <span>${item.home_team_country} vs ${item.away_team_country} ${item.home_team.goals} - ${item.away_team.goals}</span>
+          </div> `
+}
+
+
+
+$(showCurrentGames);
+$(returnFromGames);
+$(searchCountryMatches);
+$(selectSearchedTeam);
