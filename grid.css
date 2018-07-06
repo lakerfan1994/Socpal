@@ -15,7 +15,7 @@
   clear: both;
 }
 
-col-2,.col-4, .col-6 {
+col-2,.col-4, .col-6, col-12 {
   float: left;
   padding-left: 1.04166666%;
   padding-right: 1.04166666%;
@@ -36,5 +36,10 @@ col-2,.col-4, .col-6 {
     width: 50%;
     margin-left: 25%;
   }
+
+  col-12 {
+    width:100%;
+  }
+
 }
 

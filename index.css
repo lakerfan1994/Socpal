@@ -36,7 +36,8 @@
 
 .main-content {
   width: 50%;
-  height: 100%;
+  margin-right: 2%;
+  margin-left: 2%;
 }
 
 .right-corner {
@@ -63,5 +64,9 @@ main {
 }
 
 .flag-2 img{
+  width: 100%;
+}
+
+iframe {
   width: 100%;
 }

@@ -1,5 +1,8 @@
 const todayMatchApi = "https://worldcup.sfg.io/matches";
 const flagUrl = 'https://restcountries.eu/rest/v2/name/';
+const youtubeEmbedder = "https://www.youtube.com/embed/";
+const youtubeEndpoint = "https://www.googleapis.com/youtube/v3/search";
+const keyCode = "AIzaSyDh3vRFgUTk0R12FpgTN-_K11udH4RmHjk";
 
 function showCurrentGames(){
   $('.current-game-button').click(function(){
@@ -20,8 +23,10 @@ function updateInfo(data){
  const currentMatch = data.find(findMostRecentGame);
  const homeFlagId = currentMatch.home_team_country;
  const awayFlagId = currentMatch.away_team_country;
+ const searchMatch = `${homeFlagId} vs ${awayFlagId} fifa world cup 2018`;
+ getYoutubeApi(searchMatch, updateVideos);
  renderAllStats(currentMatch);
- getFlagApi(homeFlagId, awayFlagId, renderHomeFlag, renderAwayFlag )
+ getFlagApi(homeFlagId, awayFlagId, renderHomeFlag, renderAwayFlag );
 }
 
 function findMostRecentGame(game) {
@@ -49,7 +54,7 @@ function renderMatchInfo(item) {
 function renderAllStats(item) {
   $('.left-main').append(renderHomeStats(item));
   $('.right-main').append(renderAwayStats(item));
-  $('.main-content').append(renderMatchInfo(item));
+  $('.leading-content').append(renderMatchInfo(item));
 }
 
 function getFlagApi(homeFlag, awayFlag, homeCallBack, awayCallBack){
@@ -88,6 +93,25 @@ function renderAwayFlag(awayFlag) {
   $('.flag-2').append(getFlagPicture(awayFlag));
 }
 
+function getYoutubeApi(searchTerm, callback) {
+  const params = {url: youtubeEndpoint, data: {part: "snippet", q: searchTerm, key: keyCode}, success: callback};
+  $.ajax(params);
+}
+
+function renderYoutubeVideos(data) {
+  return `
+  <div class="row">
+    <div class="col-6">
+      <iframe src=${youtubeEmbedder}${data.items[0].id.videoId} alt="soccer video"></iframe>
+      <iframe src=${youtubeEmbedder}${data.items[1].id.videoId} alt="soccer video"></iframe>
+      <iframe src=${youtubeEmbedder}${data.items[2].id.videoId} alt="soccer video"></iframe>
+    </div>
+  </div> `
+}
+
+function updateVideos(data) {
+  $('.leading-content').append(renderYoutubeVideos(data));
+}
 
 
 $(showCurrentGames)
