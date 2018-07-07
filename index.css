@@ -2,9 +2,9 @@
   box-sizing: border-box;
   }
 
-.homepage {
-  margin-top: 300px;
-}
+  ul {
+    list-style-type: none;
+  }
 
 .block {
   display: inline-block;
