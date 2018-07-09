@@ -30,6 +30,12 @@ col-2,.col-4, .col-6, col-12 {
 
   .col-4 {
     width: 33.33%;
+    margin-top: 50px;
+    margin-bottom: 125px;
+  }
+
+  .col-4.home-left {
+    margin-left: 16.67%;
   }
 
   .col-6 {

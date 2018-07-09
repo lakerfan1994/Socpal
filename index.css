@@ -6,6 +6,22 @@
     list-style-type: none;
   }
 
+  button {
+    margin-bottom: 20px;
+  }
+
+  #textfield {
+    width: 80%;
+  }
+
+  .textfield-button {
+    width: 20%;
+  }
+
+  .back-button{
+    width: 25%;
+  }
+
 .block {
   display: inline-block;
 }
@@ -26,6 +42,7 @@
    height: 100%;
    width: 100%;
  }
+
 
 .left-corner {
   width: 23%;

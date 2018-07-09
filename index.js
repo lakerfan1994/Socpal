@@ -18,6 +18,7 @@ function listOfWorldCupTeams(){
 function showCurrentGames(){
   $('.current-game-button').click(function(){
     $('header').addClass("hidden");
+    $('main').removeClass('hidden');
     $('.game-chooser').addClass('hidden');
     $('.current-game').removeClass('hidden');
     getSoccerApi(updateInfo);
@@ -29,6 +30,7 @@ function showCurrentGames(){
 function returnFromGames() {
   $('.back-button').click(function(){
     $('.current-game').addClass('hidden');
+    $('main').addClass('hidden');
     emptyApp();
     $('header').removeClass('hidden');
   })
@@ -37,9 +39,9 @@ function returnFromGames() {
 function searchCountryMatches() {
   $('#js-form').submit(function(event){
     event.preventDefault();
-     $('.game-chooser').empty();
+    $('main').removeClass('hidden');
+    $('.game-chooser').empty();
     $('.game-chooser').removeClass('hidden');
-
     getSoccerApi(filterForSearch);
   })
 }
@@ -68,6 +70,20 @@ function chooseSelectedMatch(data) {
   const userAnswer = $('.selectedAnswer').text();
   let cleanedString = userAnswer.replace(/vs|0|1|2|3|4|5|6|7|8|9|-/gi, "");
   let arrayOfTeams = cleanedString.trim().split(" ");
+  console.log(arrayOfTeams);
+  if(arrayOfTeams[0] === 'Korea') {
+    arrayOfTeams[0] = 'Korea Republic'
+  }
+  if(arrayOfTeams[2] === 'Korea') {
+    arrayOfTeams[2] = 'Korea Republic'
+  }
+  if(arrayOfTeams[0] === 'Saudi') {
+    arrayOfTeams[0] = 'Saudi Arabia'
+  }
+   if(arrayOfTeams[2] === 'Saudi') {
+    arrayOfTeams[2] = 'Saudi Arabia'
+  }
+  console.log(arrayOfTeams);
   const selectedMatch = data.find(item => item.home_team_country === arrayOfTeams[0] && item.away_team_country === arrayOfTeams[2]);
   const homeFlagId = selectedMatch.home_team_country;
   const awayFlagId = selectedMatch.away_team_country;
@@ -198,6 +214,16 @@ function emptyApp() {
 
 function filterForSearch(data) {
   let userInput = $('#textfield').val();
+  userInput = userInput.toLowerCase();
+  let tempString = userInput.slice(1);
+  userInput = userInput.charAt(0).toUpperCase();
+  userInput += tempString;
+  if(userInput === 'Saudi arabia' || userInput === 'Korea republic') {
+    backString = userInput.slice(0,6);
+    frontString = userInput.slice(7);
+    userInput = userInput.charAt(6).toUpperCase();
+    userInput = backString + userInput + frontString;
+  };
   $('#textfield').val('');
   $('.game-chooser').append(`
         <h2 class="centered-text">Which game would you like to view?</h2>
@@ -212,7 +238,7 @@ function filterForSearch(data) {
   }
   else{
     $('.game-chooser').empty();
-    $('.game-chooser').append(`<h2 class="centered-text">Sorry, this entry was invalid. Please enter the full name of the country. Feel free to look up the countries available by clicking on the List of World Cup Teams button above!</h2>`);
+    $('.game-chooser').append(`<h2 class="centered-text">Sorry, this entry was invalid. Please view the list of World Cup Teams tab above to see a list of valid entries.</h2>`);
   }
 }
 
@@ -224,12 +250,16 @@ function renderSearchMatches(item) {
 }
 
 function listTeams(data){
-  console.log(data)
-  const listOfTeams = data.map(item => renderTeamList(item));
+  const listOfTeams = data.sort(groupSort).map(item => renderTeamList(item));
   $('.list-of-teams').prepend(listOfTeams);
   $('header').addClass('hidden');
+  $('main').removeClass('hidden');
   $('.current-game').removeClass('hidden');
 
+}
+
+function groupSort(country1, country2) {
+  return country1.id - country2.id;
 }
 
 function renderTeamList(data){

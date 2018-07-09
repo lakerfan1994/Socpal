@@ -17,30 +17,30 @@
     <header>
       <div class="row">
         <div class= "col-6 homepage">
-          <h1>Welcome to Socpal! Which games would you like to view?</h1>
+          <h1>Welcome to Socpal, your one stop shop for all your soccer needs! Which soccer games would you like to view?</h1>
         </div>
       </div>
       <div class="row">
-        <div class="col-4 homechoice"> 
-          <button class="prev-game-button start-button">List of World Cup Teams<button>
+        <div class="col-4 home-left"> 
+          <button class="prev-game-button start-button">List of World Cup Teams</button>
         </div>
-        <div class="col-4 homechoice">
-          <button class="current-game-button start-button">Most Recent Game<button>
+        <div class="col-4 home-right">
+          <button class="current-game-button start-button">Most Recent Game</button>
         </div>
-        <div class="col-4 homechoice">
+        <div class="col-6">
           <form id='js-form' aria-live= "assertive">
             <div class= "form-main">
               <legend>Search World Cup Matches by team</legend>
               <label for="textfield">
                 <input id="textfield" type="text" placeholder="Nigeria">
               </label>
-              <button type="submit">Search</button>
+              <button type="submit" class='textfield-button'>Search</button>
               </div>
            </form>
         </div>
       </div>  
     </header>
-    <main>
+    <main class="hidden">
       <div class="game-chooser row">        
       </div> 
       <div class="current-game hidden"> 
