@@ -163,9 +163,20 @@ function renderAwayStats(item) {
 }
 
 function renderMatchInfo(item) {
+  
+  if(item.home_team.penalties === 0 && item.away_team.penalties === 0) {
   return `<div class="centered-text">
             <h2>${item.home_team_country}  vs  ${item.away_team_country}</h2>
-          </div>  `
+            <h3>${item.home_team.goals}(${item.home_team.penalties}) : ${item.away_team.goals}(${item.away_team.penalties})</h3>
+          </div>  `}
+  else
+  {
+    return `<div class="centered-text">
+      <h2>${item.home_team_country}  vs  ${item.away_team_country}</h2>
+      <h3>${item.home_team.goals} : ${item.away_team.goals}</h3>
+    </div> `
+    
+  }
 }
 
 function renderAllStats(item) {
