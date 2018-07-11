@@ -1,5 +1,19 @@
 * {
-  box-sizing: border-box;
+  box-sizing: border-box;  
+  }
+  
+html {
+  background-image: url( "http://i350.photobucket.com/albums/q416/lakerfan1994/090f6e96_zpsqsg0l5uf.png");
+}  
+
+
+  h1, p, button, legend, h2, h3 {
+    color:whitesmoke;
+  }
+
+
+  p {
+    font-size: 15px;
   }
 
   ul {
@@ -9,6 +23,28 @@
 
   button {
     margin-bottom: 20px;
+    background-image: url("http://i350.photobucket.com/albums/q416/lakerfan1994/090f6e96_zpsqsg0l5uf.png");
+  }
+
+  @media only screen and (min-width: 640px){
+
+  .home-left {
+    margin-left: 16.67%;
+  }
+
+  .home-left, .home-right {
+    margin-top: 50px;
+    margin-bottom: 125px;
+    }
+
+    .centered-element {
+      margin-left: 25%;
+    }
+
+    .back-button{
+    width: 25%;
+  }
+
   }
 
   #textfield {
@@ -19,9 +55,6 @@
     width: 20%;
   }
 
-  .back-button{
-    width: 25%;
-  }
 
 .block {
   display: inline-block;
@@ -79,14 +112,33 @@ main {
 
 .flag-1 img{
   width: 100%;
+  height:75%;
 }
 
 .flag-2 img{
   width: 100%;
+  height: 75%;
+}
+
+.soccer-ball{
+  height: 50px;
+  width:50px;
+}
+
+.soccer-ball-bad{
+  height: 50px;
+  width: 50px;
+  background-color:red;
+}
+
+.penalty-kick{
+  height: 50px;
+  width: 75px;
 }
 
 iframe {
   width: 100%;
+  height: 400px;
 }
 
 chooser-form {

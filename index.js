@@ -7,6 +7,7 @@ const teamListApi = 'https://worldcup.sfg.io/teams/';
 
 function listOfWorldCupTeams(){
   $('.prev-game-button').click(function(){
+     $('header').addClass('hidden');
     $('.game-chooser').empty();
     $('.leading-content').append(`<div class="centered-text"><ul class="list-of-teams"></ul></div>`);
     getTeamListApi(listTeams);
@@ -72,16 +73,25 @@ function chooseSelectedMatch(data) {
   let arrayOfTeams = cleanedString.trim().split(" ");
   console.log(arrayOfTeams);
   if(arrayOfTeams[0] === 'Korea') {
-    arrayOfTeams[0] = 'Korea Republic'
+    arrayOfTeams[0] = 'Korea Republic';
+    arrayOfTeams[2] = arrayOfTeams[3];
   }
   if(arrayOfTeams[2] === 'Korea') {
-    arrayOfTeams[2] = 'Korea Republic'
+    arrayOfTeams[2] = 'Korea Republic';
   }
   if(arrayOfTeams[0] === 'Saudi') {
-    arrayOfTeams[0] = 'Saudi Arabia'
+    arrayOfTeams[0] = 'Saudi Arabia';
+    arrayOfTeams[2] = arrayOfTeams[3];
   }
    if(arrayOfTeams[2] === 'Saudi') {
-    arrayOfTeams[2] = 'Saudi Arabia'
+    arrayOfTeams[2] = 'Saudi Arabia';
+  }
+  if(arrayOfTeams[0] === 'Costa') {
+    arrayOfTeams[0] = 'Costa Rica';
+    arrayOfTeams[2] = arrayOfTeams[3];
+  }
+  if(arrayOfTeams[2] === 'Costa') {
+    arrayOfTeams[2] = 'Costa Rica';
   }
   console.log(arrayOfTeams);
   const selectedMatch = data.find(item => item.home_team_country === arrayOfTeams[0] && item.away_team_country === arrayOfTeams[2]);
@@ -140,7 +150,7 @@ function updateInfo(data){
  const currentMatch = data.find(findMostRecentGame);
  const homeFlagId = currentMatch.home_team_country;
  const awayFlagId = currentMatch.away_team_country;
- const searchMatch = `${homeFlagId} vs ${awayFlagId} fifa world cup 2018`;
+ const searchMatch = `${homeFlagId} vs ${awayFlagId} fifa world cup 2018 highlights`;
  getYoutubeApi(searchMatch, updateVideos);
  renderAllStats(currentMatch);
  getFlagApi(homeFlagId, awayFlagId, renderHomeFlag, renderAwayFlag );
@@ -151,20 +161,51 @@ function findMostRecentGame(game) {
 }
 
 function renderHomeStats(item) {
+  let homeTeamEvents = item.home_team_events;
+  homeTeamEvents = homeTeamEvents.filter(isEventGoal);
+  homeTeamEvents = homeTeamEvents.map(renderPlayerGoal);
+
   return `<div class="centered-text">
-            <p>Goals scored: ${item.home_team.goals}</p>
+            <h3>Goals scored by:</h3>
+            ${homeTeamEvents}
           </div> `
 }
 
+function isEventGoal(item) {
+  return (item.type_of_event === 'goal' || item.type_of_event === 'goal-penalty' || item.type_of_event === 'goal-own');
+}
+
+function renderPlayerGoal(item) {
+  if(item.type_of_event === 'goal'){
+     return `<p>${item.player} at "${item.time}"</p>
+          <img src='http://clipart-library.com/images/pT58x9r7c.png' class='soccer-ball' alt='image of a soccer ball'>`
+  }
+  if(item.type_of_event === 'goal-penalty'){
+     return `<p>${item.player} at "${item.time}"</p>
+              
+          <img src='https://banner2.kisspng.com/20180421/xae/kisspng-penalty-shootout-play-foot-ball-games-penalty-kick-penalty-clipart-5adad6c08a8592.7117409615242912645674.jpg' class='penalty-kick' alt='image of a penalty kick'>`
+  }
+  if(item.type_of_event === 'goal-own')
+  {
+     return  `<p>${item.player} at "${item.time}"</p>
+          <img src='https://www.toonpool.com/user/6485/files/worst_soccer_player_ever_1071775.jpg' class='soccer-ball-bad' alt='image of a person kicking himself in the head'>`
+  }
+}
+
 function renderAwayStats(item) {
+  let awayTeamEvents = item.away_team_events;
+  awayTeamEvents = awayTeamEvents.filter(isEventGoal);
+  awayTeamEvents = awayTeamEvents.map(renderPlayerGoal);
+
   return `<div class="centered-text">
-            <p>Goals scored: ${item.away_team.goals}</p>
+            <h3>Goals scored by:</h3>
+            ${awayTeamEvents}
           </div> `
 }
 
 function renderMatchInfo(item) {
   
-  if(item.home_team.penalties === 0 && item.away_team.penalties === 0) {
+  if(item.home_team.penalties !== 0 && item.away_team.penalties !== 0) {
   return `<div class="centered-text">
             <h2>${item.home_team_country}  vs  ${item.away_team_country}</h2>
             <h3>${item.home_team.goals}(${item.home_team.penalties}) : ${item.away_team.goals}(${item.away_team.penalties})</h3>
@@ -203,11 +244,7 @@ function renderAwayFlag(awayFlag) {
 function renderYoutubeVideos(data) {
   return `
   <div class="row">
-    <div class="col-6">
       <iframe src=${youtubeEmbedder}${data.items[0].id.videoId} alt="soccer video"></iframe>
-      <iframe src=${youtubeEmbedder}${data.items[1].id.videoId} alt="soccer video"></iframe>
-      <iframe src=${youtubeEmbedder}${data.items[2].id.videoId} alt="soccer video"></iframe>
-    </div>
   </div> `
 }
 
@@ -229,7 +266,7 @@ function filterForSearch(data) {
   let tempString = userInput.slice(1);
   userInput = userInput.charAt(0).toUpperCase();
   userInput += tempString;
-  if(userInput === 'Saudi arabia' || userInput === 'Korea republic') {
+  if(userInput === 'Saudi arabia' || userInput === 'Korea republic' || userInput === 'Costa rica') {
     backString = userInput.slice(0,6);
     frontString = userInput.slice(7);
     userInput = userInput.charAt(6).toUpperCase();
@@ -238,7 +275,7 @@ function filterForSearch(data) {
   $('#textfield').val('');
   $('.game-chooser').append(`
         <h2 class="centered-text">Which game would you like to view?</h2>
-        <form class= "chooser-form centered-text col-6" aria-live="assertive">
+        <form class= "chooser-form centered-text col-6 centered-element" aria-live="assertive">
           <button type="submit" class="centered-text">Submit</button>
         </form> `);
   const arrayOfMatches = data.filter(item => item.home_team_country === userInput || item.away_team_country === userInput);
@@ -263,7 +300,6 @@ function renderSearchMatches(item) {
 function listTeams(data){
   const listOfTeams = data.sort(groupSort).map(item => renderTeamList(item));
   $('.list-of-teams').prepend(listOfTeams);
-  $('header').addClass('hidden');
   $('main').removeClass('hidden');
   $('.current-game').removeClass('hidden');
 
@@ -274,7 +310,7 @@ function groupSort(country1, country2) {
 }
 
 function renderTeamList(data){
-  return `<li>${data.country}</li>`;
+  return `<li><a href='https://en.wikipedia.org/wiki/${data.country}'><p>${data.country}</p></a></li>`;
 }
 
 
