@@ -1,4 +1,4 @@
-n* {
+* {
   box-sizing: border-box;  
   }
   
@@ -9,7 +9,7 @@ html {
 
   h1, p, button, legend, h2, h3 {
     color:whitesmoke;
-    font-family: cursive;
+    font-family: cursive
   }
 
 
@@ -25,6 +25,7 @@ html {
   button {
     margin-bottom: 20px;
     background-image: url("http://i350.photobucket.com/albums/q416/lakerfan1994/090f6e96_zpsqsg0l5uf.png");
+    font-family: 'Aldrich', sans-serif;;
   }
 
   @media only screen and (min-width: 640px){
@@ -53,7 +54,7 @@ html {
   }
 
   .textfield-button {
-    width: 18%;
+    width: 20%;
   }
 
 
@@ -98,9 +99,12 @@ html {
   float: right;
 }
 
+
+
 main {
   height: 1000px;;
   width: 100%;
+  overflow-x: hidden;
 }
 
 .flag-1 {
@@ -134,7 +138,7 @@ main {
 
 .penalty-kick{
   height: 50px;
-  width: 75px;
+  width: 60px;
 }
 
 iframe {

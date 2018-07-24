@@ -16,14 +16,41 @@ function listOfWorldCupTeams(){
   })
 }
 
+
+function listTeams(data){
+  const listOfTeams = data.sort(groupSort).map(item => renderTeamList(item));
+  $('.list-of-teams').prepend(listOfTeams);
+  $('main').removeClass('hidden');
+  $('.current-game').removeClass('hidden');
+}
+
+function groupSort(country1, country2) {
+  return country1.id - country2.id;
+}
+
+function renderTeamList(data){
+  return `<li><a href='https://en.wikipedia.org/wiki/${data.country}'><p>${data.country}</p></a></li>`;
+}
+
 function showCurrentGames(){
   $('.current-game-button').click(function(){
     $('header').addClass("hidden");
     $('main').removeClass('hidden');
     $('.game-chooser').addClass('hidden');
     $('.current-game').removeClass('hidden');
-    getSoccerApi(updateInfo);
+    getSoccerApi(showCurrentMatch);
   })
+}
+
+function showCurrentMatch(data){
+  let dataApi = data;
+ const currentMatch = data.find(findMostRecentGame);
+ const homeFlagId = currentMatch.home_team_country;
+ const awayFlagId = currentMatch.away_team_country;
+ const searchMatch = `${homeFlagId} vs ${awayFlagId} fifa world cup 2018 highlights`;
+ getYoutubeApi(searchMatch, updateVideos);
+ renderAllStats(currentMatch);
+ getFlagApi(homeFlagId, awayFlagId, renderHomeFlag, renderAwayFlag );
 }
 
 
@@ -145,16 +172,6 @@ function getTeamListApi(callback) {
   $.ajax(params);
 }
 
-function updateInfo(data){
-  let dataApi = data;
- const currentMatch = data.find(findMostRecentGame);
- const homeFlagId = currentMatch.home_team_country;
- const awayFlagId = currentMatch.away_team_country;
- const searchMatch = `${homeFlagId} vs ${awayFlagId} fifa world cup 2018 highlights`;
- getYoutubeApi(searchMatch, updateVideos);
- renderAllStats(currentMatch);
- getFlagApi(homeFlagId, awayFlagId, renderHomeFlag, renderAwayFlag );
-}
 
 function findMostRecentGame(game) {
  return game.status !== "future"
@@ -296,23 +313,6 @@ function renderSearchMatches(item) {
            <p>${item.home_team_country} vs ${item.away_team_country} ${item.home_team.goals} - ${item.away_team.goals}</p>
           </div> `
 }
-
-function listTeams(data){
-  const listOfTeams = data.sort(groupSort).map(item => renderTeamList(item));
-  $('.list-of-teams').prepend(listOfTeams);
-  $('main').removeClass('hidden');
-  $('.current-game').removeClass('hidden');
-
-}
-
-function groupSort(country1, country2) {
-  return country1.id - country2.id;
-}
-
-function renderTeamList(data){
-  return `<li><a href='https://en.wikipedia.org/wiki/${data.country}'><p>${data.country}</p></a></li>`;
-}
-
 
 
 $(showCurrentGames);
