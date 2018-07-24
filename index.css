@@ -1,4 +1,4 @@
-* {
+n* {
   box-sizing: border-box;  
   }
   
@@ -9,6 +9,7 @@ html {
 
   h1, p, button, legend, h2, h3 {
     color:whitesmoke;
+    font-family: cursive;
   }
 
 
