@@ -74,6 +74,10 @@ html {
   text-align:center;
 }
 
+.no-overflow {
+  overflow-x: hidden;
+}
+
  .current-game{
    height: 100%;
    width: 100%;
@@ -104,7 +108,6 @@ html {
 main {
   height: 1000px;;
   width: 100%;
-  overflow-x: hidden;
 }
 
 .flag-1 {

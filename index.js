@@ -22,6 +22,7 @@ function listTeams(data){
   $('.list-of-teams').prepend(listOfTeams);
   $('main').removeClass('hidden');
   $('.current-game').removeClass('hidden');
+  $('.current-game').removeClass('no-overflow');
 }
 
 function groupSort(country1, country2) {
@@ -61,6 +62,7 @@ function returnFromGames() {
     $('main').addClass('hidden');
     emptyApp();
     $('header').removeClass('hidden');
+    $('.current-game').addClass('no-overflow');
   })
 }
 
