@@ -6,14 +6,13 @@
     <title>Socpal</title>
     <link href="grid.css" rel="stylesheet" type="text/css">
     <link href="index.css" rel="stylesheet" type="text/css" />
-    <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
    <script src="index.js"></script>
   </head>
-
   <body>
+    <!-This is basically the main page that the user sees upon entering the app->
     <header>
       <div class="row">
         <div class= "col-6 homepage centered-element">
@@ -22,7 +21,7 @@
       </div>
       <div class="row">
         <div class="col-4 home-left"> 
-          <button class="prev-game-button start-button">List of World Cup Teams</button>
+          <button class="list-button start-button">List of World Cup Teams</button>
         </div>
         <div class="col-4 home-right">
           <button class="current-game-button start-button">Most Recent Game</button>
@@ -41,8 +40,10 @@
       </div>  
     </header>
     <main class="hidden">
+      <!-This game chooser div exists to contain the search results after the user searches for the game stats they want to view->
       <div class="game-chooser row">        
       </div> 
+      <!-Main screen of the app, this is where the list of teams and soccer stats page will be portrayed->
       <div class="current-game hidden no-overflow"> 
         <div class="left-corner block">
           <div class="flag-1">

@@ -6,7 +6,7 @@ const keyCode = "AIzaSyDh3vRFgUTk0R12FpgTN-_K11udH4RmHjk";
 const teamListApi = 'https://worldcup.sfg.io/teams/';
 
 function listOfWorldCupTeams(){
-  $('.prev-game-button').click(function(){
+  $('.list-button').click(function(){
      $('header').addClass('hidden');
     $('.game-chooser').empty();
     $('.leading-content').append(`<div class="centered-text"><ul class="list-of-teams"></ul></div>`);
