@@ -4,6 +4,7 @@ A World Cup companion app designed to provide soccer fans a way to look up curre
 
 <h2>Link to live app</h2>
 Link to Github Pages is printed below
+
 https://lakerfan1994.github.io/Socpal/
 
 
@@ -11,18 +12,22 @@ https://lakerfan1994.github.io/Socpal/
 
 
 <h3>Main/home Page</h3>
+
 ![Picture of the main screen](http://i350.photobucket.com/albums/q416/lakerfan1994/Socpal-main-page_zpstdgoqvvi.png~original)
 
 
 
 <h3>List of countries</h3>
+
 ![Picture of the list of countries](http://i350.photobucket.com/albums/q416/lakerfan1994/Socpal-List-of-teams-page_zpsudn6frl1.png~original)
 
 
 <h3>Main Screen Search Results</h3>
+
 ![Picture of the main page with search results added](http://i350.photobucket.com/albums/q416/lakerfan1994/Socpal-search-results-page_zps3ymsntem.png~original)
 
 <h3>Soccer Stats Page</h3>
+
 ![Page with team stats for two teams](http://i350.photobucket.com/albums/q416/lakerfan1994/Socpal-soccer-info-page_zpsicgoqcql.png~original)
 
 
