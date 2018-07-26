@@ -128,6 +128,25 @@ function isEventGoal(item) {
   return (item.type_of_event === 'goal' || item.type_of_event === 'goal-penalty' || item.type_of_event === 'goal-own');
 }
 
+//This function simply chooses between three different kinds of events and generates information about the match to put into the Dom based 
+//on the information received.
+function renderPlayerGoal(item) {
+  if(item.type_of_event === 'goal'){
+     return `<p>${item.player} at "${item.time}"</p>
+          <img src='http://clipart-library.com/images/pT58x9r7c.png' class='soccer-ball' alt='image of a soccer ball'>`
+  }
+  if(item.type_of_event === 'goal-penalty'){
+     return `<p>${item.player} at "${item.time}"</p>
+              
+          <img src='https://banner2.kisspng.com/20180421/xae/kisspng-penalty-shootout-play-foot-ball-games-penalty-kick-penalty-clipart-5adad6c08a8592.7117409615242912645674.jpg' class='penalty-kick' alt='image of a penalty kick'>`
+  }
+  if(item.type_of_event === 'goal-own')
+  {
+     return  `<p>${item.player} at "${item.time}"</p>
+          <img src='https://www.toonpool.com/user/6485/files/worst_soccer_player_ever_1071775.jpg' class='soccer-ball-bad' alt='image of a person kicking himself in the head'>`
+  }
+}
+
 
 
 
@@ -182,7 +201,6 @@ function chooseSelectedMatch(data) {
   const userAnswer = $('.selectedAnswer').text();
   let cleanedString = userAnswer.replace(/vs|0|1|2|3|4|5|6|7|8|9|-/gi, "");
   let arrayOfTeams = cleanedString.trim().split(" ");
-  console.log(arrayOfTeams);
   if(arrayOfTeams[0] === 'Korea') {
     arrayOfTeams[0] = 'Korea Republic';
     arrayOfTeams[2] = arrayOfTeams[3];
@@ -204,7 +222,6 @@ function chooseSelectedMatch(data) {
   if(arrayOfTeams[2] === 'Costa') {
     arrayOfTeams[2] = 'Costa Rica';
   }
-  console.log(arrayOfTeams);
   const selectedMatch = data.find(item => item.home_team_country === arrayOfTeams[0] && item.away_team_country === arrayOfTeams[2]);
   const homeFlagId = selectedMatch.home_team_country;
   const awayFlagId = selectedMatch.away_team_country;
@@ -236,34 +253,11 @@ function getFlagApi(homeFlag, awayFlag, homeCallBack, awayCallBack){
     awayFlag = "Korea";
   }
   const params = {url: `${flagUrl}${homeFlag}`, success: homeCallBack};
-  console.log(`${flagUrl}${homeFlag}`)
   $.ajax(params);
   const params2 = {url: `${flagUrl}${awayFlag}`, success: awayCallBack};
-  console.log(`${flagUrl}${awayFlag}`);
   $.ajax(params2);
 }
 
-
-
-
-//This function simply chooses between three different kinds of events and generates information about the match to put into the Dom based 
-//on the information received.
-function renderPlayerGoal(item) {
-  if(item.type_of_event === 'goal'){
-     return `<p>${item.player} at "${item.time}"</p>
-          <img src='http://clipart-library.com/images/pT58x9r7c.png' class='soccer-ball' alt='image of a soccer ball'>`
-  }
-  if(item.type_of_event === 'goal-penalty'){
-     return `<p>${item.player} at "${item.time}"</p>
-              
-          <img src='https://banner2.kisspng.com/20180421/xae/kisspng-penalty-shootout-play-foot-ball-games-penalty-kick-penalty-clipart-5adad6c08a8592.7117409615242912645674.jpg' class='penalty-kick' alt='image of a penalty kick'>`
-  }
-  if(item.type_of_event === 'goal-own')
-  {
-     return  `<p>${item.player} at "${item.time}"</p>
-          <img src='https://www.toonpool.com/user/6485/files/worst_soccer_player_ever_1071775.jpg' class='soccer-ball-bad' alt='image of a person kicking himself in the head'>`
-  }
-}
 
 
 

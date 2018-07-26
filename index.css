@@ -4,15 +4,25 @@
   }
   
 html {
-  background-image: url( "http://i350.photobucket.com/albums/q416/lakerfan1994/090f6e96_zpsqsg0l5uf.png");
+  background: whitesmoke;
 }  
 
 
   h1, p, button, legend, h2, h3 {
-    color:whitesmoke;
+    color: black;
     font-family: cursive
   }
 
+  header {
+    background-image: url('https://www.presstelegram.com/wp-content/uploads/2018/02/xxxx_spo_ocr-l-soccer-generic-stock-0013.jpg?w=820');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+  }
+
+  .form-main {
+    margin-bottom: 150px;
+
+  }
 
   p {
     font-size: 15px;
@@ -25,8 +35,42 @@ html {
 
   button {
     margin-bottom: 20px;
-    background-image: url("http://i350.photobucket.com/albums/q416/lakerfan1994/090f6e96_zpsqsg0l5uf.png");
+    height: 50px;
+    background-color: rgb(50, 255, 100);
     font-family: 'Aldrich', sans-serif;;
+  }
+
+  button, legend {
+    font-size: 20px;
+  }
+
+  legend {
+    color:  black;
+    text-align: right;
+  }
+
+
+  @media only screen and (max-width: 600px){
+    h1 {
+      font-size: 25px;
+    }
+
+    legend {
+      font-size: 15px;
+      text-align: left;
+
+    }
+
+    #textfield {
+      height: 50px;
+      width: 60%;
+    }
+
+    .textfield-button{
+      width: 40%;
+    }
+
+
   }
 
   @media only screen and (min-width: 640px){
@@ -48,15 +92,19 @@ html {
     width: 25%;
   }
 
-  }
-
-  #textfield {
+      #textfield {
+    height: 50px;    
     width: 80%;
   }
 
   .textfield-button {
     width: 20%;
   }
+
+}
+
+
+
 
 
 .block {
