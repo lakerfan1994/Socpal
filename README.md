@@ -19,7 +19,8 @@ https://lakerfan1994.github.io/Socpal/
 
 <h3>List of countries</h3>
 
-![Picture of the list of countries](http://i350.photobucket.com/albums/q416/lakerfan1994/List%20of%20teams_zps3pmn6m7u.png~original)
+![Picture of the list 
+of countries](http://i350.photobucket.com/albums/q416/lakerfan1994/List%20of%20teams_zps3pmn6m7u.png~original)
 
 
 <h3>Main Screen Search Results</h3>
