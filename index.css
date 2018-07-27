@@ -99,23 +99,12 @@ header {
   }
 
 
-
-
-
   .block {
   display: inline-block;
   }
 
   .start-button {
   width: 100%;
-  }
-
-  .small-pixel {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    color: whitesmoke;
-    display: block;
   }
 
   .hidden {
