@@ -5,23 +5,22 @@
   
 html {
   background: whitesmoke;
-}  
+  }  
 
 
-  h1, p, button, legend, h2, h3 {
+h1, p, button, legend, h2, h3 {
     color: black;
     font-family: cursive
   }
 
-  header {
+header {
     background-image: url('https://www.presstelegram.com/wp-content/uploads/2018/02/xxxx_spo_ocr-l-soccer-generic-stock-0013.jpg?w=820');
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }
 
-  .form-main {
+.form-main {
     margin-bottom: 150px;
-
   }
 
   p {
@@ -50,16 +49,12 @@ html {
   }
 
 
+
   @media only screen and (max-width: 600px){
     h1 {
       font-size: 25px;
     }
 
-    legend {
-      font-size: 15px;
-      text-align: left;
-
-    }
 
     #textfield {
       height: 50px;
@@ -75,11 +70,11 @@ html {
 
   @media only screen and (min-width: 640px){
 
-  .home-left {
+   .home-left {
     margin-left: 16.67%;
-  }
+   }
 
-  .home-left, .home-right {
+   .home-left, .home-right {
     margin-top: 50px;
     margin-bottom: 125px;
     }
@@ -90,123 +85,130 @@ html {
 
     .back-button{
     width: 25%;
-  }
+    }
 
-      #textfield {
+    #textfield {
     height: 50px;    
     width: 80%;
-  }
+    }
 
-  .textfield-button {
+   .textfield-button {
     width: 20%;
+    }
+
   }
 
-}
 
 
 
 
-
-.block {
+  .block {
   display: inline-block;
-}
+  }
 
-.start-button {
+  .start-button {
   width: 100%;
-}
+  }
 
-.hidden {
+  .small-pixel {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    color: whitesmoke;
+    display: block;
+  }
+
+  .hidden {
   display: none;
-}
+  }
 
-.centered-text {
+  .centered-text {
   text-align:center;
-}
+  }
 
-.no-overflow {
+  .no-overflow {
   overflow-x: hidden;
-}
+  }
 
  .current-game{
    height: 100%;
    width: 100%;
- }
+  }
 
 
-.left-corner {
+  .left-corner {
   width: 23%;
   height: 100%;
   float: left;
-  
-}
+  }
 
-.main-content {
+  .main-content {
   width: 50%;
   margin-right: 2%;
   margin-left: 2%;
-}
+  }
 
-.right-corner {
+  .right-corner {
   width: 23%;
   height: 100%;
   float: right;
-}
+  }
 
 
 
-main {
+  main {
   height: 1000px;;
   width: 100%;
-}
+  }
 
-.flag-1 {
+  .flag-1 {
   height: 25%;
-}
+  }
 
-.flag-2 {
+  .flag-2 {
   height: 25%;
-}
+  }
 
-.flag-1 img{
+  .flag-1 img{
   width: 100%;
   height:75%;
-}
+  }
 
-.flag-2 img{
+  .flag-2 img{
   width: 100%;
   height: 75%;
-}
+  }
 
-.soccer-ball{
+  .soccer-ball{
   height: 50px;
   width:50px;
-}
+  }
 
-.soccer-ball-bad{
+  .soccer-ball-bad{
   height: 50px;
   width: 50px;
-}
+  }
 
-.penalty-kick{
+  .penalty-kick{
   height: 50px;
   width: 60px;
-}
+  }
 
-iframe {
+  iframe {
   width: 100%;
   height: 400px;
-}
+  }
 
-chooser-form {
+  chooser-form {
   margin-left: auto;
-  margin-right: auto;
-}
+  margin-right: auto; 
+  }
 
-.answerOption {
+  .answerOption {
   margin: 20px;
   border: solid, black, 5px;
-}
+  }
 
-input {
+  input {
   float: left;
-}
+  }

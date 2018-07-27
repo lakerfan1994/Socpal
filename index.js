@@ -7,9 +7,9 @@ const teamListApi = 'https://worldcup.sfg.io/teams/';
 
 //This function on click of the List of Teams button in the application clears everything out, adds an unordered list to the main app,
 //then runs the getTeamListApi call
-function listOfWorldCupTeams(){
+function listOfWorldCupTeams() { 
   $('.list-button').click(function(){
-     $('header').addClass('hidden');
+    $('header').addClass('hidden');
     $('.game-chooser').empty();
     $('.leading-content').append(`<div class="centered-text"><ul class="list-of-teams"></ul></div>`);
     getTeamListApi(listTeams);
@@ -64,7 +64,7 @@ function getSoccerApi(callback) {
 //through the match data received as a paramater and finds the most recent game, then makes calls to both the youtube api as well
 //as the flag api to find the appropriate information to display the match. 
 function showCurrentMatch(data){
-  let dataApi = data;
+ let dataApi = data;
  const currentMatch = data.find(findMostRecentGame);
  const homeFlagId = currentMatch.home_team_country;
  const awayFlagId = currentMatch.away_team_country;
@@ -136,8 +136,7 @@ function renderPlayerGoal(item) {
           <img src='http://clipart-library.com/images/pT58x9r7c.png' class='soccer-ball' alt='image of a soccer ball'>`
   }
   if(item.type_of_event === 'goal-penalty'){
-     return `<p>${item.player} at "${item.time}"</p>
-              
+     return `<p>${item.player} at "${item.time}"</p>   
           <img src='https://banner2.kisspng.com/20180421/xae/kisspng-penalty-shootout-play-foot-ball-games-penalty-kick-penalty-clipart-5adad6c08a8592.7117409615242912645674.jpg' class='penalty-kick' alt='image of a penalty kick'>`
   }
   if(item.type_of_event === 'goal-own')
@@ -185,10 +184,7 @@ function selectSearchedTeam() {
     event.preventDefault();
     $('input:checked').siblings().addClass('selectedAnswer');
     getSoccerApi(chooseSelectedMatch);
-
-
     }
-    
   })
 }
 //callback function for the getSoccerApi function, this takes match data and cleans the user selection 
@@ -281,7 +277,7 @@ function renderMatchInfo(item) {
 
 //used by both renderHomeFlag and renderAway flag to render the actual picture of the flag
 function getFlagPicture(data) {
-  return `<img src=${data[0].flag}>`
+  return `<img src=${data[0].flag} alt= 'picture of ${data[0].name}'s' flag'>`
 }
 
 
@@ -299,8 +295,8 @@ function renderAwayFlag(awayFlag) {
 //renders the highlight video used in the main portion of the app
 function renderYoutubeVideos(data) {
   return `
-  <div class="row">
-      <iframe src=${youtubeEmbedder}${data.items[0].id.videoId} alt="soccer video"></iframe>
+  <div class="row" label='Youtube soccer video'>
+      <iframe src=${youtubeEmbedder}${data.items[0].id.videoId} title= 'Soccer video' aria-live= "assertive"></iframe>
   </div> `
 }
 
@@ -349,14 +345,19 @@ function filterForSearch(data) {
 //renders the search results options for the user search
 function renderSearchMatches(item) {
   return `<div class="answerOption">
-           <input type="radio" role="radio" name="answerOption" required>
-           <p>${item.home_team_country} vs ${item.away_team_country} ${item.home_team.goals} - ${item.away_team.goals}</p>
+           <input id= 'answer${item.fifa_id}' type="radio" role="radio" name="answerOption" required>
+           <label for= 'answer${item.fifa_id}'>${item.home_team_country} vs ${item.away_team_country} ${item.home_team.goals} - ${item.away_team.goals}</label>
           </div> `
 }
 
+//This function is responsible for running all of the callback functions that the entire utilizes
+function runApp() {
+  showCurrentGames();
+  returnFromGames();
+  searchCountryMatches();
+  selectSearchedTeam();
+  listOfWorldCupTeams();
+}
 
-$(showCurrentGames);
-$(returnFromGames);
-$(searchCountryMatches);
-$(selectSearchedTeam);
-$(listOfWorldCupTeams);
+$(runApp);
+

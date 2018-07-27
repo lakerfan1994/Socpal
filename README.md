@@ -13,22 +13,22 @@ https://lakerfan1994.github.io/Socpal/
 
 <h3>Main/home Page</h3>
 
-![Picture of the main screen](http://i350.photobucket.com/albums/q416/lakerfan1994/Socpal-main-page_zpstdgoqvvi.png~original)
+![Picture of the main screen](http://i350.photobucket.com/albums/q416/lakerfan1994/New%20Main%20Page_zpshizxt4fv.png~original)
 
 
 
 <h3>List of countries</h3>
 
-![Picture of the list of countries](http://i350.photobucket.com/albums/q416/lakerfan1994/Socpal-List-of-teams-page_zpsudn6frl1.png~original)
+![Picture of the list of countries](http://i350.photobucket.com/albums/q416/lakerfan1994/List%20of%20teams_zps3pmn6m7u.png~original)
 
 
 <h3>Main Screen Search Results</h3>
 
-![Picture of the main page with search results added](http://i350.photobucket.com/albums/q416/lakerfan1994/Socpal-search-results-page_zps3ymsntem.png~original)
+![Picture of the main page with search results added](http://i350.photobucket.com/albums/q416/lakerfan1994/Search%20Results_zpsbbn040si.png~original)
 
 <h3>Soccer Stats Page</h3>
 
-![Page with team stats for two teams](http://i350.photobucket.com/albums/q416/lakerfan1994/Socpal-soccer-info-page_zpsicgoqcql.png~original)
+![Page with team stats for two teams](http://i350.photobucket.com/albums/q416/lakerfan1994/Soccer%20Stats%20Page_zpsqdpezuxo.png~original)
 
 
 <h2>Technologies Used</h2>
