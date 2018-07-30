@@ -11,7 +11,6 @@ function listOfWorldCupTeams() {
   $('.list-button').click(function(){
     $('header').addClass('hidden');
     $('.game-chooser').empty();
-    $('.leading-content').append(`<div class="centered-text"><ul class="list-of-teams"></ul></div>`);
     getTeamListApi(listTeams);
   })
 }
@@ -26,10 +25,8 @@ function getTeamListApi(callback) {
 //This function sorts teams based on their group then renders the long list in the DOM
 function listTeams(data){
   const listOfTeams = data.sort(groupSort).map(item => renderTeamList(item));
-  $('.list-of-teams').prepend(listOfTeams);
+  $('.list-of-teams-container').append(listOfTeams);
   $('main').removeClass('hidden');
-  $('.current-game').removeClass('hidden');
-  $('.current-game').removeClass('no-overflow');
 }
 
 
@@ -39,7 +36,7 @@ function groupSort(country1, country2) {
 }
 //Creates every list item of a team after it has been sorted. Each list item is an anchor that links to that countries wikipedia article.
 function renderTeamList(data){
-  return `<li><a href='https://en.wikipedia.org/wiki/${data.country}'><p>${data.country}</p></a></li>`;
+  return `<div class= 'new-list-item'><a class= 'centered-text'href='https://en.wikipedia.org/wiki/${data.country}'><p>${data.country}</p></a></div>`;
 }
 
 //On clicking recent game, this function then runs methods that send an ajax request to the API that handles match data, and runs

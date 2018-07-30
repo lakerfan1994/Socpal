@@ -7,10 +7,15 @@ html {
   background: whitesmoke;
   }  
 
+  .branding-image {
+    font-size: 30px;
+    padding: 5px;
+  }
+
 
 h1, p, button, legend, h2, h3 {
     color: black;
-    font-family: cursive
+    font-family: 'Poppins', sans-serif;
   }
 
 header {
@@ -27,10 +32,6 @@ header {
     font-size: 15px;
   }
 
-  ul {
-    list-style-type: none;
-    padding: 0px;
-  }
 
   button {
     margin-bottom: 20px;
@@ -48,9 +49,32 @@ header {
     text-align: right;
   }
 
+  .list-of-teams-container{
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .new-list-item {
+    flex-basis: 23.5%;
+  }
+
+  .new-list-item p {
+    font-size: 20px;
+
+  }
+
+  .list-page-title {
+    width: 100%;
+    text-align: center;
+  }
 
 
-  @media only screen and (max-width: 600px){
+
+
+  @media only screen and (max-width: 700px){
     h1 {
       font-size: 25px;
     }
@@ -65,10 +89,12 @@ header {
       width: 40%;
     }
 
+    
+
 
   }
 
-  @media only screen and (min-width: 640px){
+  @media only screen and (min-width: 700px){
 
    .home-left {
     margin-left: 16.67%;

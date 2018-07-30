@@ -23,7 +23,7 @@ col-2,.col-4, .col-6, col-12 {
   width: 100%;
 }
 
-@media only screen and (min-width: 640px) {
+@media only screen and (min-width: 700px) {
 
   .col-2 {
     width: 16.67%

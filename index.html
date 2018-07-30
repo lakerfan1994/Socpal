@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
     <title>Socpal</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <link href="grid.css" rel="stylesheet" type="text/css">
     <link href="index.css" rel="stylesheet" type="text/css" />
     <script src="https://code.jquery.com/jquery-3.3.1.js"
@@ -12,8 +13,10 @@
     <script src="index.js"></script>
   </head>
   <body>
-    <!-This is basically the main page that the user sees upon entering the app->
+    <!--This is basically the main page that the user sees upon entering the app-->
     <header>
+      <div class='branding image'>
+        <h3 class= 'branding-image'>Socpal</h3>
       <div class="row">
         <div class= "col-6 centered-element">
           <h1>Welcome to Socpal, your one stop shop for all your World Cup needs! Which soccer games would you like to view?</h1>
@@ -40,10 +43,18 @@
       </div>  
     </header>
     <main class="hidden">
-      <!-This game chooser div exists to contain the search results after the user searches for the game stats they want to view->
+      <!--This game chooser div exists to contain the search results after the user searches for the game stats they want to view-->
       <div class="game-chooser row">        
       </div> 
-      <!-Main screen of the app, this is where the list of teams and soccer stats page will be portrayed->
+      <!--This list-of-teams-container div exists to organize the list
+      of world cup teams page into a nice readable format -->
+
+      <div class= 'list-of-teams-container row'>
+       <div class= 'list-page-title'>
+         <h2>List of all World Cup Teams</h2>
+       </div>
+      </div>'
+      <!--Main screen of the app, this is where the list of teams and soccer stats page will be portrayed-->
       <div class="current-game hidden no-overflow"> 
         <div class="left-corner block">
           <div class="flag-1">
