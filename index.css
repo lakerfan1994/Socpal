@@ -89,7 +89,7 @@ header {
       width: 40%;
     }
 
-    
+
 
 
   }
@@ -145,36 +145,44 @@ header {
   overflow-x: hidden;
   }
 
- .current-game{
-   height: 100%;
-   width: 100%;
-  }
-
-
-  .left-corner {
-  width: 23%;
-  height: 100%;
-  float: left;
-  }
-
-  .main-content {
-  width: 50%;
-  margin-right: 2%;
-  margin-left: 2%;
-  }
-
-  .right-corner {
-  width: 23%;
-  height: 100%;
-  float: right;
-  }
-
-
-
   main {
   height: 1000px;;
   width: 100%;
   }
+
+ .current-game{
+   height: 100%;
+   width: 100%;
+   display: flex;
+   flex-wrap: wrap;
+  }
+
+
+  .left-corner {
+  flex: 1;
+  }
+
+  .main-content {
+  flex: 2;
+  }
+
+
+  .right-corner {
+  flex: 1;
+  }
+
+   @media only screen and (max-width: 650px){
+
+  .main-content {
+    order: 1;
+    flex-basis: 100%;
+    // come back to this one when you come back tomorrow
+    
+  }
+  
+
+   }
+
 
   .flag-1 {
   height: 25%;
@@ -210,7 +218,7 @@ header {
   }
 
   iframe {
-  width: 100%;
+  width: 95%;
   height: 400px;
   }
 

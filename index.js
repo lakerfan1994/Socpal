@@ -292,7 +292,7 @@ function renderAwayFlag(awayFlag) {
 //renders the highlight video used in the main portion of the app
 function renderYoutubeVideos(data) {
   return `
-  <div class="row" label='Youtube soccer video'>
+  <div class="row centered-text" label='Youtube soccer video'>
       <iframe src=${youtubeEmbedder}${data.items[0].id.videoId} title= 'Soccer video' aria-live= "assertive"></iframe>
   </div> `
 }
