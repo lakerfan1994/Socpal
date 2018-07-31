@@ -13,12 +13,10 @@
     <script src="index.js"></script>
   </head>
   <body>
-    <!-This is basically the main page that the user sees upon entering the app->
+    <!--This is basically the main page that the user sees upon entering the app-->
     <header>
-      <div class='branding image'>
         <h3 class= 'branding-image'>Socpal</h3>
-      <div class="row">
-        <div class= "col-6 centered-element">
+        <div class= " welcome col-6 centered-element">
           <h1>Welcome to Socpal, your one stop shop for all your World Cup needs! Which soccer games would you like to view?</h1>
         </div>  
       </div>
@@ -34,6 +32,7 @@
             <div class= "form-main">
               <legend>Search World Cup Matches by team</legend>
               <label for="textfield">
+                <p class= 'small-pixel'>Search World Cup Matches by team</p>
                <input id="textfield" type="text" placeholder="For example , type 'Nigeria'">
               </label>
               <button type="submit" class='textfield-button'>Search</button>
@@ -42,21 +41,22 @@
         </div>
       </div>  
     </header>
-    <main class="hidden">
+    <main>
       <!--This game chooser div exists to contain the search results after the user searches for the game stats they want to view-->
-      <div class="game-chooser row">        
+      <div class="game-chooser row hidden">        
       </div> 
       <!--This list-of-teams-container div exists to organize the list
-      of world cup teams page into a nice readable format -->
-
-      <div class= 'list-of-teams-container row'>
+      of world cup teams page into a nice readable format --> 
+      <div class= 'main-list hidden'>
        <div class= 'list-page-title'>
          <h2>List of all World Cup Teams</h2>
        </div>
-      </div>'
+       <div class= 'list-of-teams-container row'>
+       </div>'
+      </div>
       <!--Main screen of the app, this is where the list of teams and soccer stats page will be portrayed-->
       
-      <div class="current-game hidden no-overflow"> 
+      <div class="current-game hidden"> 
         <div class="left-corner block">
           <div class="flag-1">
           </div>
@@ -65,9 +65,6 @@
         </div>
         <div class="main-content block">
           <div class="leading-content"> 
-          </div>
-          <div class="centered-text">
-            <button class="back-button">Back</button>
           </div>
         </div>
         <div class="right-corner block">

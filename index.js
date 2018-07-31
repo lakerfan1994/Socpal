@@ -9,9 +9,9 @@ const teamListApi = 'https://worldcup.sfg.io/teams/';
 //then runs the getTeamListApi call
 function listOfWorldCupTeams() { 
   $('.list-button').click(function(){
-    $('header').addClass('hidden');
-    $('.game-chooser').empty();
+    emptyApp();
     getTeamListApi(listTeams);
+    $('.main-list').removeClass('hidden');
   })
 }
 
@@ -43,9 +43,7 @@ function renderTeamList(data){
 //a callback function that shows information of the most recent game
 function showCurrentGames(){
   $('.current-game-button').click(function(){
-    $('header').addClass("hidden");
-    $('main').removeClass('hidden');
-    $('.game-chooser').addClass('hidden');
+    emptyApp();
     $('.current-game').removeClass('hidden');
     getSoccerApi(showCurrentMatch);
   })
@@ -102,6 +100,7 @@ function renderHomeStats(item) {
   homeTeamEvents = homeTeamEvents.map(renderPlayerGoal);
 
   return `<div class="centered-text">
+            <h2>${item.home_team_country}</h2>
             <h3>Goals scored by:</h3>
             ${homeTeamEvents}
           </div> `
@@ -114,6 +113,7 @@ function renderAwayStats(item) {
   awayTeamEvents = awayTeamEvents.map(renderPlayerGoal);
 
   return `<div class="centered-text">
+            <h2>${item.away_team_country}</h2>
             <h3>Goals scored by:</h3>
             ${awayTeamEvents}
           </div> `
@@ -144,26 +144,12 @@ function renderPlayerGoal(item) {
 }
 
 
-
-
-//This function basically handles the back button in all sections of the app. When pressed, it returns the user to the home
-//screen
-function returnFromGames() {
-  $('.back-button').click(function(){
-    $('.current-game').addClass('hidden');
-    $('main').addClass('hidden');
-    emptyApp();
-    $('header').removeClass('hidden');
-    $('.current-game').addClass('no-overflow');
-  })
-}
 //This function essentially handles the methods used to search for a specific game by country. It waits for a button submit event
 //and clears the Dom of some information
 function searchCountryMatches() {
   $('#js-form').submit(function(event){
     event.preventDefault();
-    $('main').removeClass('hidden');
-    $('.game-chooser').empty();
+    emptyApp();
     $('.game-chooser').removeClass('hidden');
     getSoccerApi(filterForSearch);
   })
@@ -188,10 +174,9 @@ function selectSearchedTeam() {
 //into a string array containing both the home team string and away string team. It then finds a match 
 //between the two teams and runs the methods used to generate a match
 function chooseSelectedMatch(data) {
-  $('header').addClass("hidden");
-  $('.game-chooser').addClass('hidden');
-  $('.current-game').removeClass('hidden');
   const userAnswer = $('.selectedAnswer').text();
+  emptyApp();
+   $('.current-game').removeClass('hidden');
   let cleanedString = userAnswer.replace(/vs|0|1|2|3|4|5|6|7|8|9|-/gi, "");
   let arrayOfTeams = cleanedString.trim().split(" ");
   if(arrayOfTeams[0] === 'Korea') {
@@ -260,7 +245,7 @@ function renderMatchInfo(item) {
   if(item.home_team.penalties !== 0 && item.away_team.penalties !== 0) {
   return `<div class="centered-text">
             <h2>${item.home_team_country}  vs  ${item.away_team_country}</h2>
-            <h3>${item.home_team.goals}(${item.home_team.penalties}) : ${item.away_team.goals}(${item.away_team.penalties})</h3>
+            <h3>${item.home_team.goals}(${item.home_team.penalties})  : ${item.away_team.goals}(${item.away_team.penalties})</h3>
           </div>  `}
   else
   {
@@ -304,6 +289,11 @@ function emptyApp() {
   $('.leading-content').empty();
   $('.flag-2').empty();
   $('.right-main').empty();
+  $('.list-of-teams-container').empty();
+  $('.game-chooser').empty();
+  $('.game-chooser').addClass('hidden');
+  $('.main-list').addClass('hidden');
+  $('.current-game').addClass('hidden');
 }
 
 // a callback method for the soccerapi, it receives the api list of all match data and goes through a couple steps to 
@@ -350,7 +340,6 @@ function renderSearchMatches(item) {
 //This function is responsible for running all of the callback functions that the entire utilizes
 function runApp() {
   showCurrentGames();
-  returnFromGames();
   searchCountryMatches();
   selectSearchedTeam();
   listOfWorldCupTeams();

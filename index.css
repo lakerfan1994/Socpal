@@ -8,8 +8,18 @@ html {
   }  
 
   .branding-image {
+    display: inline;
     font-size: 30px;
     padding: 5px;
+    text-align: left;
+  }
+
+  .welcome{
+    float: none;
+  }
+
+  .small-pixel{
+    font-size: 1px;
   }
 
 
@@ -19,13 +29,13 @@ h1, p, button, legend, h2, h3 {
   }
 
 header {
-    background-image: url('https://www.presstelegram.com/wp-content/uploads/2018/02/xxxx_spo_ocr-l-soccer-generic-stock-0013.jpg?w=820');
+    background-image: url('https://wys-swysc.sportsaffinity.com/mbrsite/showsiteimage.aspx?imageguid=EDCAE92A-919A-4C1B-9050-B3E416155EB3');
     background-repeat: no-repeat;
     background-size: 100% 100%;
   }
 
 .form-main {
-    margin-bottom: 150px;
+    margin-bottom: 100px;
   }
 
   p {
@@ -40,13 +50,14 @@ header {
     font-family: 'Aldrich', sans-serif;;
   }
 
-  button, legend {
+  button {
     font-size: 20px;
   }
 
   legend {
-    color:  black;
-    text-align: right;
+    color: rgb(225, 225, 225);
+    text-align: left;
+    font-size: 25px;
   }
 
   .list-of-teams-container{
@@ -57,14 +68,36 @@ header {
     flex-wrap: wrap;
   }
 
-  .new-list-item {
+ @media only screen and (min-width: 550px){ 
+   
+   .new-list-item {
     flex-basis: 23.5%;
   }
+
+ }
+
+ @media only screen and (max-width: 550px){ 
+   
+   .new-list-item {
+    flex-basis: 31%;
+  }
+
+ }
+
+ @media only screen and (max-width: 375px){ 
+   
+   .new-list-item {
+    flex-basis: 47%;
+  }
+
+ }
 
   .new-list-item p {
     font-size: 20px;
 
   }
+
+
 
   .list-page-title {
     width: 100%;
@@ -115,11 +148,11 @@ header {
 
     #textfield {
     height: 50px;    
-    width: 80%;
+    width: 75%;
     }
 
    .textfield-button {
-    width: 20%;
+    width: 25%;
     }
 
   }
@@ -148,6 +181,7 @@ header {
   main {
   height: 1000px;;
   width: 100%;
+  margin-top: 100px;
   }
 
  .current-game{
@@ -173,48 +207,77 @@ header {
 
    @media only screen and (max-width: 650px){
 
-  .main-content {
-    order: 1;
-    flex-basis: 100%;
-    // come back to this one when you come back tomorrow
+    .main-content {
+     order: 1;
+     flex-basis: 100%;
+     margin-bottom: 100px;
+    }
     
+    .left-corner {
+      order: 2;
+      flex-basis: 100%;
+      margin-bottom: 100px;
+    }
+
+    .right-corner {
+      order: 3;
+      flex-basis: 100%;
+    }
+    
+    .flag-1 img {
+      width: 50%;
+    }
+
+    .flag-2 img {
+      width: 50%;
+    }
   }
+
+   @media only screen and (min-width: 650px){
+     .flag-1 img {
+       width: 100%;
+     }
+
+     .flag-2 img {
+       width: 100%;
+     }
+   }
+
   
 
-   }
 
 
   .flag-1 {
   height: 25%;
+  text-align: center;
   }
 
   .flag-2 {
   height: 25%;
+  text-align: center;
   }
 
   .flag-1 img{
-  width: 100%;
   height:75%;
   }
 
   .flag-2 img{
-  width: 100%;
   height: 75%;
   }
 
   .soccer-ball{
-  height: 50px;
-  width:50px;
+  height: 75px;
+  width: 100px;
   }
 
   .soccer-ball-bad{
-  height: 50px;
-  width: 50px;
+  height:75px;
+  width: 100px;
   }
 
   .penalty-kick{
-  height: 50px;
-  width: 60px;
+  height: 75px;
+  width: 100px;
   }
 
   iframe {
