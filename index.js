@@ -246,14 +246,13 @@ function renderMatchInfo(item) {
   return `<div class="centered-text">
             <h2>${item.home_team_country}  vs  ${item.away_team_country}</h2>
             <h3>${item.home_team.goals}(${item.home_team.penalties})  : ${item.away_team.goals}(${item.away_team.penalties})</h3>
-          </div>  `}
+          </div>    `}
   else
   {
     return `<div class="centered-text">
       <h2>${item.home_team_country}  vs  ${item.away_team_country}</h2>
       <h3>${item.home_team.goals} : ${item.away_team.goals}</h3>
-    </div> `
-    
+    </div>  `   
   }
 }
 
@@ -279,6 +278,17 @@ function renderYoutubeVideos(data) {
   return `
   <div class="row centered-text" label='Youtube soccer video'>
       <iframe src=${youtubeEmbedder}${data.items[0].id.videoId} title= 'Soccer video' aria-live= "assertive"></iframe>
+  </div>
+  <div class= 'guide row'>
+    <div class= 'item'>
+     <img class='soccer-ball' src= "http://clipart-library.com/images/pT58x9r7c.png" alt= 'Picture of a soccer ball'><p>Regular Goal</p>
+    </div>
+    <div class= 'item'>
+      <img class= 'penalty-kick' src= "https://banner2.kisspng.com/20180421/xae/kisspng-penalty-shootout-play-foot-ball-games-penalty-kick-penalty-clipart-5adad6c08a8592.7117409615242912645674.jpg" alt= 'picture of a penalty kick'><p>Penalty Kick</p>
+    </div>
+    <div class= 'item'>
+      <img class= 'soccer-ball-bad' src= "https://www.toonpool.com/user/6485/files/worst_soccer_player_ever_1071775.jpg" alt='picture of a guy kicking himself in the head'><p>Own Goal</p>
+    </div>
   </div> `
 }
 
@@ -333,7 +343,7 @@ function filterForSearch(data) {
 function renderSearchMatches(item) {
   return `<div class="answerOption">
            <input id= 'answer${item.fifa_id}' type="radio" role="radio" name="answerOption" required>
-           <label for= 'answer${item.fifa_id}'>${item.home_team_country} vs ${item.away_team_country} ${item.home_team.goals} - ${item.away_team.goals}</label>
+           <label class= 'choice-options' for= 'answer${item.fifa_id}'>${item.home_team_country} vs ${item.away_team_country} ${item.home_team.goals} - ${item.away_team.goals}</label>
           </div> `
 }
 

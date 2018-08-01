@@ -14,6 +14,7 @@ html {
     text-align: left;
   }
 
+
   .welcome{
     float: none;
   }
@@ -23,10 +24,18 @@ html {
   }
 
 
-h1, p, button, legend, h2, h3 {
+h1, p, legend, h2, h3 {
+    color: whitesmoke;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .main p, .main legend, .main h2, .main h3 {
     color: black;
     font-family: 'Poppins', sans-serif;
   }
+
+
+
 
 header {
     background-image: url('https://wys-swysc.sportsaffinity.com/mbrsite/showsiteimage.aspx?imageguid=EDCAE92A-919A-4C1B-9050-B3E416155EB3');
@@ -39,13 +48,14 @@ header {
   }
 
   p {
-    font-size: 15px;
+    font-size: 18px;
   }
 
 
   button {
     margin-bottom: 20px;
     height: 50px;
+    color: black;
     background-color: rgb(50, 255, 100);
     font-family: 'Aldrich', sans-serif;;
   }
@@ -55,9 +65,10 @@ header {
   }
 
   legend {
-    color: rgb(225, 225, 225);
+    color: whitesmoke;
     text-align: left;
     font-size: 25px;
+    background-image: url('https://wys-swysc.sportsaffinity.com/mbrsite/showsiteimage.aspx?imageguid=EDCAE92A-919A-4C1B-9050-B3E416155EB3') ;
   }
 
   .list-of-teams-container{
@@ -298,3 +309,22 @@ header {
   input {
   float: left;
   }
+
+  .guide {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .item soccer-ball, .item soccer-ball-bad, .item penalty-kick {
+    width: 75px;
+  }
+
+  .choice-options {
+    font-size: 20px;
+    color: black;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* when you come back wednesday august 1, fix the legend under video at very small screens
+
+  
