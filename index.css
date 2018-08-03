@@ -115,6 +115,15 @@ header {
     text-align: center;
   }
 
+  .scroll-to-top  {
+    width: 100%;
+    text-align: center;
+  }
+
+  .scroll-to-top p {
+    color: red;
+  }
+
 
 
 
@@ -132,10 +141,6 @@ header {
     .textfield-button{
       width: 40%;
     }
-
-
-
-
   }
 
   @media only screen and (min-width: 700px){
@@ -221,13 +226,13 @@ header {
     .main-content {
      order: 1;
      flex-basis: 100%;
-     margin-bottom: 100px;
+     margin-bottom: 150px;
     }
     
     .left-corner {
       order: 2;
       flex-basis: 100%;
-      margin-bottom: 100px;
+      margin-bottom: 150px;
     }
 
     .right-corner {
@@ -242,6 +247,11 @@ header {
     .flag-2 img {
       width: 50%;
     }
+
+    .item .soccer-ball, .item .soccer-ball-bad, .item .penalty-kick {
+    width: 75px;
+    height: 75px;
+  }
   }
 
    @media only screen and (min-width: 650px){
@@ -252,6 +262,12 @@ header {
      .flag-2 img {
        width: 100%;
      }
+
+       .item .soccer-ball, .item .soccer-ball-bad, .item .penalty-kick {
+    width: 75px;
+  }
+
+
    }
 
   
@@ -315,16 +331,16 @@ header {
     justify-content: space-between;
   }
 
-  .item soccer-ball, .item soccer-ball-bad, .item penalty-kick {
-    width: 75px;
+  .item {
+    flex: 1;
   }
+
+  
 
   .choice-options {
     font-size: 20px;
     color: black;
     font-family: 'Poppins', sans-serif;
   }
-
-  /* when you come back wednesday august 1, fix the legend under video at very small screens
 
   

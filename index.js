@@ -12,6 +12,8 @@ function listOfWorldCupTeams() {
     emptyApp();
     getTeamListApi(listTeams);
     $('.main-list').removeClass('hidden');
+    $('.scroll-to-top').removeClass('hidden');
+    document.querySelector('.scroll-to-top').scrollIntoView({ behavior: 'smooth' });
   })
 }
 
@@ -26,7 +28,6 @@ function getTeamListApi(callback) {
 function listTeams(data){
   const listOfTeams = data.sort(groupSort).map(item => renderTeamList(item));
   $('.list-of-teams-container').append(listOfTeams);
-  $('main').removeClass('hidden');
 }
 
 
@@ -45,7 +46,9 @@ function showCurrentGames(){
   $('.current-game-button').click(function(){
     emptyApp();
     $('.current-game').removeClass('hidden');
+    $('.scroll-to-top').removeClass('hidden');
     getSoccerApi(showCurrentMatch);
+    document.querySelector('.leading-content').scrollIntoView({ behavior: 'smooth' });
   })
 }
 
@@ -151,7 +154,10 @@ function searchCountryMatches() {
     event.preventDefault();
     emptyApp();
     $('.game-chooser').removeClass('hidden');
+    $('.scroll-to-top').removeClass('hidden');
     getSoccerApi(filterForSearch);
+    document.querySelector('.game-chooser').scrollIntoView({ behavior: 'smooth' });
+    
   })
 }
 
@@ -207,6 +213,7 @@ function chooseSelectedMatch(data) {
   getYoutubeApi(searchMatch, updateVideos);
   renderAllStats(selectedMatch);
   getFlagApi(homeFlagId, awayFlagId, renderHomeFlag, renderAwayFlag );
+  $('.scroll-to-top').removeClass('hidden');
 
 
 }
@@ -280,13 +287,13 @@ function renderYoutubeVideos(data) {
       <iframe src=${youtubeEmbedder}${data.items[0].id.videoId} title= 'Soccer video' aria-live= "assertive"></iframe>
   </div>
   <div class= 'guide row'>
-    <div class= 'item'>
+    <div class= 'item centered-text'>
      <img class='soccer-ball' src= "http://clipart-library.com/images/pT58x9r7c.png" alt= 'Picture of a soccer ball'><p>Regular Goal</p>
     </div>
-    <div class= 'item'>
+    <div class= 'item centered-text'>
       <img class= 'penalty-kick' src= "https://banner2.kisspng.com/20180421/xae/kisspng-penalty-shootout-play-foot-ball-games-penalty-kick-penalty-clipart-5adad6c08a8592.7117409615242912645674.jpg" alt= 'picture of a penalty kick'><p>Penalty Kick</p>
     </div>
-    <div class= 'item'>
+    <div class= 'item centered-text'>
       <img class= 'soccer-ball-bad' src= "https://www.toonpool.com/user/6485/files/worst_soccer_player_ever_1071775.jpg" alt='picture of a guy kicking himself in the head'><p>Own Goal</p>
     </div>
   </div> `
@@ -304,6 +311,7 @@ function emptyApp() {
   $('.game-chooser').addClass('hidden');
   $('.main-list').addClass('hidden');
   $('.current-game').addClass('hidden');
+  $('.scroll-to-top').addClass('hidden');
 }
 
 // a callback method for the soccerapi, it receives the api list of all match data and goes through a couple steps to 
@@ -346,6 +354,7 @@ function renderSearchMatches(item) {
            <label class= 'choice-options' for= 'answer${item.fifa_id}'>${item.home_team_country} vs ${item.away_team_country} ${item.home_team.goals} - ${item.away_team.goals}</label>
           </div> `
 }
+
 
 //This function is responsible for running all of the callback functions that the entire utilizes
 function runApp() {
