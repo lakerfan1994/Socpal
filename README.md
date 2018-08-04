@@ -29,7 +29,7 @@ of countries](http://i350.photobucket.com/albums/q416/lakerfan1994/list_zpsf8ofb
 
 <h3>Soccer Stats Page</h3>
 
-![Page with team stats for two teams](http://i350.photobucket.com/albums/q416/lakerfan1994/Soccer%20Stats%20Page_zpsqdpezuxo.png~original)
+![Page with team stats for two teams](http://i350.photobucket.com/albums/q416/lakerfan1994/Soccer%20Stats_zpsqlklhxsr.png~original)
 
 
 <h2>Technologies Used</h2>
