@@ -139,7 +139,7 @@ function renderPlayerGoal(item) {
   }
   if(item.type_of_event === 'goal-penalty'){
      return `<p>${item.player} at "${item.time}"</p>   
-          <img src='https://banner2.kisspng.com/20180421/xae/kisspng-penalty-shootout-play-foot-ball-games-penalty-kick-penalty-clipart-5adad6c08a8592.7117409615242912645674.jpg' class='penalty-kick' alt='image of a penalty kick'>`
+          <img src='https://thumbs.dreamstime.com/b/den-blonda-tecknad-filmm%C3%A5lvakten-med-flailing-bev%C3%A4pnar-v%C3%A4ntande-p%C3%A5-straff-95129888.jpg' class='penalty-kick' alt='image of a penalty kick'>`
   }
   if(item.type_of_event === 'goal-own')
   {
@@ -295,7 +295,7 @@ function renderYoutubeVideos(data) {
      <img class='soccer-ball' src= "http://clipart-library.com/images/pT58x9r7c.png" alt= 'Picture of a soccer ball'><p>Regular Goal</p>
     </div>
     <div class= 'item centered-text'>
-      <img class= 'penalty-kick' src= "https://banner2.kisspng.com/20180421/xae/kisspng-penalty-shootout-play-foot-ball-games-penalty-kick-penalty-clipart-5adad6c08a8592.7117409615242912645674.jpg" alt= 'picture of a penalty kick'><p>Penalty Kick</p>
+      <img class= 'penalty-kick' src= "https://thumbs.dreamstime.com/b/den-blonda-tecknad-filmm%C3%A5lvakten-med-flailing-bev%C3%A4pnar-v%C3%A4ntande-p%C3%A5-straff-95129888.jpg" alt= 'picture of a penalty kick'><p>Penalty Kick</p>
     </div>
     <div class= 'item centered-text'>
       <img class= 'soccer-ball-bad' src= "https://www.toonpool.com/user/6485/files/worst_soccer_player_ever_1071775.jpg" alt='picture of a guy kicking himself in the head'><p>Own Goal</p>
