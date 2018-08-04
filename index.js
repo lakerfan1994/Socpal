@@ -12,8 +12,9 @@ function listOfWorldCupTeams() {
     emptyApp();
     getTeamListApi(listTeams);
     $('.main-list').removeClass('hidden');
-    $('.scroll-to-top').removeClass('hidden');
-    document.querySelector('.scroll-to-top').scrollIntoView({ behavior: 'smooth' });
+    $('main').removeClass('hidden');
+    $('.scroll-to-top-2').removeClass('hidden');
+    document.querySelector('.scroll-to-top-2').scrollIntoView({ behavior: 'smooth' });
   })
 }
 
@@ -45,6 +46,7 @@ function renderTeamList(data){
 function showCurrentGames(){
   $('.current-game-button').click(function(){
     emptyApp();
+    $('main').removeClass('hidden');
     $('.current-game').removeClass('hidden');
     $('.scroll-to-top').removeClass('hidden');
     getSoccerApi(showCurrentMatch);
@@ -153,6 +155,7 @@ function searchCountryMatches() {
   $('#js-form').submit(function(event){
     event.preventDefault();
     emptyApp();
+    $('main').removeClass('hidden');
     $('.game-chooser').removeClass('hidden');
     $('.scroll-to-top').removeClass('hidden');
     getSoccerApi(filterForSearch);
@@ -182,6 +185,7 @@ function selectSearchedTeam() {
 function chooseSelectedMatch(data) {
   const userAnswer = $('.selectedAnswer').text();
   emptyApp();
+   $('main').removeClass('hidden');
    $('.current-game').removeClass('hidden');
   let cleanedString = userAnswer.replace(/vs|0|1|2|3|4|5|6|7|8|9|-/gi, "");
   let arrayOfTeams = cleanedString.trim().split(" ");
@@ -308,10 +312,12 @@ function emptyApp() {
   $('.right-main').empty();
   $('.list-of-teams-container').empty();
   $('.game-chooser').empty();
+  $('.main').addClass('hidden');
   $('.game-chooser').addClass('hidden');
   $('.main-list').addClass('hidden');
   $('.current-game').addClass('hidden');
   $('.scroll-to-top').addClass('hidden');
+  $('.scroll-to-top-2').addClass('hidden');
 }
 
 // a callback method for the soccerapi, it receives the api list of all match data and goes through a couple steps to 
