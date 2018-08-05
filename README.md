@@ -13,7 +13,7 @@ https://lakerfan1994.github.io/Socpal/
 
 <h3>Main/home Page</h3>
 
-![Picture of the main screen](http://i350.photobucket.com/albums/q416/lakerfan1994/main%20page_zps7kejrwrm.png~original)
+![Picture of the main screen](http://i350.photobucket.com/albums/q416/lakerfan1994/main%20page_zps7kejrwrm.png)
 
 
 
