@@ -21,7 +21,7 @@ function listOfWorldCupTeams() {
 //This function is basically an ajax call to the endpoint defined at teamListApi that then runs the function listTeams on success as defined
 //by listOfWorldCupTeams
 function getTeamListApi(callback) {
-  const params = {url: teamListApi, data: {by_date: "desc"}, success: callback }
+  const params = {url: teamListApi, data: {by_date: "desc"}, success: callback };
   $.ajax(params);
 }
 
@@ -76,7 +76,7 @@ function showCurrentMatch(data){
 
 //function used to find the most recent game by finding the last played game
 function findMostRecentGame(game) {
- return game.status !== "future"
+  return game.status !== "future"
 }
 
 //Basically an ajax to the Youtube API for information, takes a query string as the search term and a callback function upon success
@@ -159,8 +159,7 @@ function searchCountryMatches() {
     $('.game-chooser').removeClass('hidden');
     $('.scroll-to-top').removeClass('hidden');
     getSoccerApi(filterForSearch);
-    document.querySelector('.game-chooser').scrollIntoView({ behavior: 'smooth' });
-    
+    document.querySelector('.game-chooser').scrollIntoView({ behavior: 'smooth' });    
   })
 }
 
@@ -185,8 +184,8 @@ function selectSearchedTeam() {
 function chooseSelectedMatch(data) {
   const userAnswer = $('.selectedAnswer').text();
   emptyApp();
-   $('main').removeClass('hidden');
-   $('.current-game').removeClass('hidden');
+  $('main').removeClass('hidden');
+  $('.current-game').removeClass('hidden');
   let cleanedString = userAnswer.replace(/vs|0|1|2|3|4|5|6|7|8|9|-/gi, "");
   let arrayOfTeams = cleanedString.trim().split(" ");
   if(arrayOfTeams[0] === 'Korea') {
@@ -362,7 +361,7 @@ function renderSearchMatches(item) {
 }
 
 
-//This function is responsible for running all of the callback functions that the entire utilizes
+//This function is responsible for running all of the callback functions that the entire app utilizes
 function runApp() {
   showCurrentGames();
   searchCountryMatches();

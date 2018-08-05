@@ -14,12 +14,11 @@
   </head>
   <body>
     <!--This is basically the main page that the user sees upon entering the app-->
-    <header>
-        <h3 class= 'branding-image'>Socpal</h3>
-        <div class= " welcome col-6 centered-element">
-          <h1>Welcome to Socpal, your one stop shop for all your World Cup needs! Which soccer games would you like to view?</h1>
-        </div>  
-      </div>
+    <header role= 'region'>
+      <h3 class= 'branding-image'>Socpal</h3>
+      <div class= " welcome col-6 centered-element">
+        <h1>Welcome to Socpal, your one stop shop for all your World Cup needs! Which soccer games would you like to view?</h1>
+      </div>  
       <div class="row">
         <div class="col-4 home-left"> 
           <button class="list-button start-button">List of World Cup Teams</button>
@@ -31,10 +30,8 @@
           <form id='js-form' aria-live= "assertive">
             <div class= "form-main">
               <legend>Search World Cup Matches by team</legend>
-              <label for="textfield">
-                <p class= 'small-pixel'>Search World Cup Matches by team</p>
-               <input id="textfield" type="text" placeholder="For example , type 'Nigeria'">
-              </label>
+              <label for="textfield" class= 'small-pixel'> Search World Cup Matches by team </label>
+              <input id="textfield" type="text" placeholder="For example , type 'Nigeria'">
               <button type="submit" class='textfield-button'>Search</button>
             </div>
           </form>
@@ -42,7 +39,7 @@
       </div>  
     </header>
 
-    <main class= 'main hidden'>
+    <main class= 'main hidden' role= 'region'>
       <!--This game chooser div exists to contain the search results after the user searches for the game stats they want to view-->
       <div class="game-chooser row hidden">        
       </div> 
@@ -55,9 +52,9 @@
        </div>
        <div class= 'list-of-teams-container row'>
        </div>
-        <div class= "scroll-to-top-2 hidden">
-            <a href='#'><p>Return to top</p></a>
-        </div>
+       <div class= "scroll-to-top-2 hidden">
+         <a href='#'><p>Return to top</p></a>
+       </div>
       </div>
       <!--Main screen of the app, this is where the list of teams and soccer stats page will be portrayed--> 
       <div class="current-game hidden"> 

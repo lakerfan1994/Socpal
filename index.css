@@ -7,54 +7,55 @@ html {
   background: whitesmoke;
   }  
 
-  .branding-image {
-    display: inline;
-    font-size: 30px;
-    padding: 15px;
-    text-align: left;
+.branding-image {
+  display: inline;
+  font-size: 30px;
+  padding: 15px;
+  text-align: left;
   }
 
 
-  .welcome{
-    float: none;
-    padding-left: 25px;
-    padding-right: 25px;
+.welcome{
+  float: none;
+  padding-left: 25px;
+  padding-right: 25px;
   }
 
-  .small-pixel{
-    font-size: 1px;
-  }
-
-
-h1, p, legend, h2, h3 {
-    color: whitesmoke;
-    font-family: 'Poppins', sans-serif;
-  }
-
-  .main p, .main legend, .main h2, .main h3 {
-    color: black;
-    font-family: 'Poppins', sans-serif;
+.small-pixel{
+  font-size: 0px;
+  position: fixed;
+  top: 0;
+  left: 0;
   }
 
 
-
-
-header {
-    width: 100%;
-    background: url('https://wys-swysc.sportsaffinity.com/mbrsite/showsiteimage.aspx?imageguid=EDCAE92A-919A-4C1B-9050-B3E416155EB3') no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+ h1, p, legend, h2, h3 {
+  color: whitesmoke;
+  font-family: 'Poppins', sans-serif;
   }
 
-.form-main {
+ .main p, .main legend, .main h2, .main h3 {
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  }
+
+
+ header {
+  width: 100%;
+  background: url('https://wys-swysc.sportsaffinity.com/mbrsite/showsiteimage.aspx?imageguid=EDCAE92A-919A-4C1B-9050-B3E416155EB3') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+
+  .form-main {
     margin-bottom: 100px;
   }
 
   p {
     font-size: 18px;
-  }
+    }
 
 
   button {
@@ -84,64 +85,56 @@ header {
     flex-wrap: wrap;
   }
 
- @media only screen and (min-width: 550px){ 
-   
+  @media only screen and (min-width: 550px){  
    .new-list-item {
     flex-basis: 23.5%;
+    }
   }
 
- }
-
- @media only screen and (max-width: 550px){ 
-   
+  @media only screen and (max-width: 550px){  
    .new-list-item {
     flex-basis: 31%;
+    }
   }
-
- }
 
  @media only screen and (max-width: 375px){ 
-   
    .new-list-item {
     flex-basis: 47%;
-  }
-
+   }
  }
 
-  .new-list-item p {
+ .new-list-item p {
     font-size: 20px;
-
   }
 
 
 
-  .list-page-title {
+ .list-page-title {
     width: 100%;
     text-align: center;
-  }
+ }
 
-  .scroll-to-top  {
+ .scroll-to-top  {
     width: 100%;
     text-align: center;
-  }
+ }
 
-  .scroll-to-top-2 {
+ .scroll-to-top-2 {
     width: 100%;
     text-align: center;
-  }
+ }
 
-  .scroll-to-top p, .scroll-to-top-2 p {
+ .scroll-to-top p, .scroll-to-top-2 p {
     color: red;
-  }
+ }
 
 
 
 
-  @media only screen and (max-width: 700px){
+ @media only screen and (max-width: 700px){
     h1 {
       font-size: 25px;
     }
-
 
     #textfield {
       height: 50px;
@@ -151,9 +144,9 @@ header {
     .textfield-button{
       width: 40%;
     }
-  }
+ }
 
-  @media only screen and (min-width: 700px){
+ @media only screen and (min-width: 700px){
 
    .home-left {
     margin-left: 16.67%;
@@ -217,7 +210,6 @@ header {
    flex-wrap: wrap;
   }
 
-
   .left-corner {
   flex: 1;
   }
@@ -231,7 +223,7 @@ header {
   flex: 1;
   }
 
-   @media only screen and (max-width: 650px){
+ @media only screen and (max-width: 650px){
 
     .main-content {
      order: 1;
@@ -262,9 +254,9 @@ header {
     width: 75px;
     height: 75px;
   }
-  }
+}
 
-   @media only screen and (min-width: 650px){
+@media only screen and (min-width: 650px){
      .flag-1 img {
        width: 100%;
      }
@@ -273,11 +265,9 @@ header {
        width: 100%;
      }
 
-       .item .soccer-ball, .item .soccer-ball-bad, .item .penalty-kick {
-    width: 75px;
-  }
-
-
+     .item .soccer-ball, .item .soccer-ball-bad, .item .penalty-kick {
+       width: 75px;
+     }
    }
 
   
@@ -344,8 +334,6 @@ header {
   .item {
     flex: 1;
   }
-
-  
 
   .choice-options {
     font-size: 20px;
