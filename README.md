@@ -36,7 +36,7 @@ of countries](http://i350.photobucket.com/albums/q416/lakerfan1994/list_zpsf8ofb
 
 <ul>
 	<li>HTML5</li>
-	<li>CSS<</li>
+	<li>CSS</li>
 	<li>Javascript</li>
 	<li>JQuery</li>
 </ul>
